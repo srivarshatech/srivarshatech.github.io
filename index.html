@@ -152,6 +152,25 @@
       padding-bottom: 4rem;
       max-width: 860px;
     }
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 3.5rem;
+      margin-bottom: 3rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-avatar-wrap {
+      flex-shrink: 0;
+      width: 260px;
+      height: 260px;
+      opacity: 0;
+      animation: fadeIn 1s ease 0.4s forwards;
+    }
+    .avatar-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 28px rgba(126,184,164,0.18));
+    }
     .hero-eyebrow {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -586,6 +605,8 @@
       .hamburger { display: flex; }
       section { padding: 5rem 1.25rem 3rem; }
       #hero { padding: 5rem 1.25rem 3rem; }
+      .hero-inner { flex-direction: column-reverse; gap: 2rem; }
+      .hero-avatar-wrap { width: 180px; height: 180px; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
       .hero-name { font-size: clamp(2.2rem, 10vw, 3.5rem); }
@@ -619,16 +640,138 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-eyebrow">Hello, I'm</div>
-    <h1 class="hero-name">Sri Varsha<br><em>Valluripalli</em></h1>
-    <p class="hero-role">B.Tech CSE (AI/ML) · First Year · Hyderabad</p>
-    <p class="hero-tagline">
-      I get curious about things and I can't stop until I understand them.
-      Currently exploring AI/ML, MLOps, and how large language models work — intentionally and from the ground up.
-    </p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">get in touch</a>
-      <a href="#about" class="btn btn-ghost">learn more</a>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Hello, I'm</div>
+        <h1 class="hero-name">Sri Varsha<br><em>Valluripalli</em></h1>
+        <p class="hero-role">B.Tech CSE (AI/ML) · First Year · Hyderabad</p>
+        <p class="hero-tagline">
+          I get curious about things and I can't stop until I understand them.
+          Currently exploring AI/ML, MLOps, and how large language models work — intentionally and from the ground up.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">get in touch</a>
+          <a href="#about" class="btn btn-ghost">learn more</a>
+        </div>
+      </div>
+      <div class="hero-avatar-wrap">
+        <svg class="avatar-svg" viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="bgGrad" cx="50%" cy="60%" r="55%">
+              <stop offset="0%" stop-color="#1e2a2e"/>
+              <stop offset="100%" stop-color="#0d0f12"/>
+            </radialGradient>
+            <radialGradient id="skinGrad" cx="45%" cy="35%" r="60%">
+              <stop offset="0%" stop-color="#c8956a"/>
+              <stop offset="100%" stop-color="#a0673a"/>
+            </radialGradient>
+            <radialGradient id="skinGrad2" cx="45%" cy="30%" r="60%">
+              <stop offset="0%" stop-color="#be8860"/>
+              <stop offset="100%" stop-color="#9a5f34"/>
+            </radialGradient>
+            <radialGradient id="hairGrad" cx="50%" cy="0%" r="80%">
+              <stop offset="0%" stop-color="#2a1f1a"/>
+              <stop offset="100%" stop-color="#0d0a08"/>
+            </radialGradient>
+            <radialGradient id="eyeGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#4a3020"/>
+              <stop offset="100%" stop-color="#1a0f08"/>
+            </radialGradient>
+            <clipPath id="avatarClip">
+              <circle cx="160" cy="150" r="145"/>
+            </clipPath>
+            <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1a2a38"/>
+              <stop offset="100%" stop-color="#0f1922"/>
+            </linearGradient>
+            <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7eb8a4"/>
+              <stop offset="100%" stop-color="#5a9a86"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Background circle -->
+          <circle cx="160" cy="150" r="148" fill="url(#bgGrad)" stroke="#7eb8a4" stroke-width="1" stroke-opacity="0.2"/>
+
+          <g clip-path="url(#avatarClip)">
+            <!-- SHIRT / BODY -->
+            <path d="M40,370 Q70,280 108,262 Q130,252 160,250 Q190,252 212,262 Q250,280 280,370 Z" fill="url(#shirtGrad)"/>
+            <path d="M136,254 Q160,268 184,254" fill="none" stroke="#7eb8a4" stroke-width="1.5" stroke-opacity="0.5"/>
+
+            <!-- NECK -->
+            <rect x="146" y="210" width="28" height="48" rx="14" fill="url(#skinGrad2)"/>
+
+            <!-- HAIR BACK -->
+            <ellipse cx="160" cy="138" rx="82" ry="86" fill="url(#hairGrad)"/>
+            <path d="M82,138 Q68,195 78,265 Q90,285 104,272 Q92,210 96,162 Z" fill="#130e09"/>
+            <path d="M238,138 Q252,195 242,265 Q230,285 216,272 Q228,210 224,162 Z" fill="#130e09"/>
+
+            <!-- HEAD -->
+            <ellipse cx="160" cy="142" rx="68" ry="74" fill="url(#skinGrad)"/>
+
+            <!-- HAIRLINE -->
+            <path d="M100,120 Q130,97 160,94 Q190,97 220,120 Q200,104 160,102 Q120,104 100,120 Z" fill="url(#hairGrad)" fill-opacity="0.95"/>
+
+            <!-- EYEBROWS -->
+            <path d="M126,128 Q136,123 148,125" fill="none" stroke="#2a1808" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M172,125 Q184,123 194,128" fill="none" stroke="#2a1808" stroke-width="2.5" stroke-linecap="round"/>
+
+            <!-- LEFT EYE -->
+            <ellipse cx="137" cy="140" rx="11" ry="8" fill="white"/>
+            <ellipse cx="137" cy="141" rx="7" ry="7" fill="url(#eyeGrad)"/>
+            <ellipse cx="137" cy="141" rx="4" ry="4" fill="#0d0a08"/>
+            <ellipse cx="140" cy="138" rx="1.5" ry="1.5" fill="white" fill-opacity="0.85"/>
+            <!-- lashes -->
+            <path d="M126,137 Q128,132 130,135" fill="none" stroke="#1a0f08" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M148,137 Q146,132 144,135" fill="none" stroke="#1a0f08" stroke-width="1.2" stroke-linecap="round"/>
+
+            <!-- RIGHT EYE -->
+            <ellipse cx="183" cy="140" rx="11" ry="8" fill="white"/>
+            <ellipse cx="183" cy="141" rx="7" ry="7" fill="url(#eyeGrad)"/>
+            <ellipse cx="183" cy="141" rx="4" ry="4" fill="#0d0a08"/>
+            <ellipse cx="186" cy="138" rx="1.5" ry="1.5" fill="white" fill-opacity="0.85"/>
+            <path d="M172,137 Q174,132 176,135" fill="none" stroke="#1a0f08" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M194,137 Q192,132 190,135" fill="none" stroke="#1a0f08" stroke-width="1.2" stroke-linecap="round"/>
+
+            <!-- NOSE -->
+            <path d="M156,150 Q153,164 148,170 Q153,174 160,173 Q167,174 172,170 Q167,164 164,150 Z" fill="#9a6038" fill-opacity="0.3"/>
+            <ellipse cx="151" cy="170" rx="4" ry="2.5" fill="#7a4828" fill-opacity="0.28"/>
+            <ellipse cx="169" cy="170" rx="4" ry="2.5" fill="#7a4828" fill-opacity="0.28"/>
+
+            <!-- LIPS -->
+            <path d="M144,184 Q152,180 160,182 Q168,180 176,184 Q168,188 160,187 Q152,188 144,184 Z" fill="#b06048"/>
+            <path d="M144,184 Q152,193 160,194 Q168,193 176,184 Q168,188 160,187 Q152,188 144,184 Z" fill="#c07058"/>
+            <path d="M153,185 Q160,183 167,185" fill="none" stroke="white" stroke-width="0.8" stroke-opacity="0.3" stroke-linecap="round"/>
+
+            <!-- BLUSH -->
+            <ellipse cx="118" cy="156" rx="13" ry="8" fill="#c46060" fill-opacity="0.09"/>
+            <ellipse cx="202" cy="156" rx="13" ry="8" fill="#c46060" fill-opacity="0.09"/>
+
+            <!-- EARS -->
+            <ellipse cx="92" cy="150" rx="9" ry="12" fill="#b07848"/>
+            <ellipse cx="94" cy="150" rx="5" ry="8" fill="#9a6038" fill-opacity="0.35"/>
+            <circle cx="92" cy="160" r="3" fill="#7eb8a4" fill-opacity="0.9"/>
+            <circle cx="92" cy="160" r="1.5" fill="#aadccc"/>
+            <ellipse cx="228" cy="150" rx="9" ry="12" fill="#b07848"/>
+            <ellipse cx="226" cy="150" rx="5" ry="8" fill="#9a6038" fill-opacity="0.35"/>
+            <circle cx="228" cy="160" r="3" fill="#7eb8a4" fill-opacity="0.9"/>
+            <circle cx="228" cy="160" r="1.5" fill="#aadccc"/>
+
+            <!-- HAIR FRONT -->
+            <path d="M100,120 Q112,100 136,98 Q148,100 154,110 Q150,102 160,100 Q170,102 166,110 Q172,100 184,98 Q208,100 220,120 Q200,107 160,106 Q120,107 100,120 Z" fill="#1a1208"/>
+            <path d="M148,102 Q154,114 151,124" fill="none" stroke="#2a1e14" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.5"/>
+          </g>
+
+          <!-- Dashed ring -->
+          <circle cx="160" cy="150" r="148" fill="none" stroke="url(#accentGrad)" stroke-width="1.5" stroke-opacity="0.28" stroke-dasharray="7 5"/>
+
+          <!-- Decorative dots -->
+          <circle cx="32" cy="72" r="2" fill="#7eb8a4" fill-opacity="0.45"/>
+          <circle cx="24" cy="92" r="1.2" fill="#7eb8a4" fill-opacity="0.25"/>
+          <circle cx="288" cy="228" r="2" fill="#7eb8a4" fill-opacity="0.45"/>
+          <circle cx="296" cy="248" r="1.2" fill="#7eb8a4" fill-opacity="0.25"/>
+        </svg>
+      </div>
     </div>
     <div class="hero-scroll">
       <div class="scroll-line"></div>
@@ -790,7 +933,7 @@
         <div class="contact-detail">
           <div class="contact-row">
             <span class="contact-icon">email</span>
-            <a href="mailto:vsrivarsha.tech@gmail.com" class="contact-link">vsrivarsha.tech@gmail.com</a>
+            <a href="mailto:varsha.valluripallis@gmail.com" class="contact-link">varsha.valluripallis@gmail.com</a>
           </div>
           <div class="contact-row">
             <span class="contact-icon">linkedin</span>
